@@ -1,0 +1,14 @@
+# Backend API Server
+fastapi
+uvicorn
+pydantic
+
+# Data Processing & Feature Extraction
+numpy
+pandas
+
+# Machine Learning & Mind Wandering Analysis
+scikit-learn
+imbalanced-learn
+xgboost
+shap

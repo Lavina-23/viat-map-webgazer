@@ -1,0 +1,223 @@
+body {
+    min-width: 600px !important;
+}
+
+button {
+    border-radius: 4px;
+}
+
+/* Video Feed Styling */
+#overlay {
+    /* Video Feed Styling:
+ * Include the !important keyword to override default styles applied by JS.
+ * webgazer.js sets defaults for: display, position, top, left, width, height
+ */
+}
+
+#webgazerVideoContainer {
+    display: block !important;
+    position: fixed !important;
+    top: 0px !important;
+    left: 0px !important;
+    width: 320px !important;
+    height: 240px !important;
+    z-index: 1;
+}
+
+/* Navbar styling */
+#webgazerNavbar {
+    left: 320px;
+    width: calc(100% - 320px);
+    z-index: 0;
+    box-shadow: 0px 3px 5px #ddd;
+    border: 0px;
+    background-color: #fff;
+}
+
+#Accuracy a {
+    background-color: #222;
+    color: #eee;
+    left: -15px;
+    padding-left: 80px;
+    padding-right: 40px;
+}
+
+#Accuracy {
+    background-color: #222;
+    padding-left: inherit;
+}
+
+li {
+    padding-left: 50px;
+}
+
+.navbar-right li {
+    padding-right: 20px;
+}
+
+.helpBtn {
+    display: inline-block;
+    padding: 15px;
+    border: none;
+    background: none;
+    color: #777;
+}
+
+.helpBtn:hover {
+    color: black !important;
+    text-decoration: none;
+}
+
+.modal-header {
+    border-bottom: none !important;
+}
+
+/* Calibration button styling */
+.calibration-points-container {
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100vw;
+    height: 100vh;
+    pointer-events: none;
+    z-index: 50;
+}
+
+.Calibration {
+    width: 36px;
+    height: 36px;
+    border-radius: 50%;
+    background-color: #ef4444;
+    color: white;
+    font-weight: 700;
+    font-size: 13px;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    border: 3px solid #ffffff;
+    box-shadow: 0 4px 10px rgba(0, 0, 0, 0.25);
+    position: fixed;
+    cursor: pointer;
+    pointer-events: auto;
+    transition: all 0.2s ease;
+    user-select: none;
+}
+
+.Calibration:hover {
+    transform: scale(1.15);
+}
+
+.Calibration.calibrated {
+    background-color: #10b981;
+    border-color: #ecfdf5;
+    cursor: default;
+}
+
+/* Calibration point positions */
+#Pt1 { top: 30px; left: 340px; }
+#Pt2 { top: 30px; left: calc(50vw + 120px); transform: translateX(-50%); }
+#Pt3 { top: 30px; right: 40px; }
+
+#Pt4 { top: 50vh; left: 40px; transform: translateY(-50%); }
+#Pt5 { top: 50vh; left: 50vw; transform: translate(-50%, -50%); }
+#Pt6 { top: 50vh; right: 40px; transform: translateY(-50%); }
+
+#Pt7 { bottom: 40px; left: 40px; }
+#Pt8 { bottom: 40px; left: 50vw; transform: translateX(-50%); }
+#Pt9 { bottom: 40px; right: 40px; }
+
+* {
+    box-sizing: border-box;
+    margin: 0;
+    padding: 0;
+    font-family: sans-serif;
+}
+
+body {
+    background: #f8fafc;
+    height: 100vh;
+    overflow: hidden;
+    display: flex;
+    flex-direction: column;
+}
+
+#sentence-box {
+    position: absolute;
+    top: 35%;
+    left: 50%;
+    transform: translate(-50%, -50%);
+    width: 65%;
+    font-size: 1.4rem;
+    line-height: 1.8;
+    text-align: center;
+    padding: 24px;
+    background: #ffffff;
+    border-radius: 12px;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.06);
+}
+
+.options-container {
+    position: absolute;
+    bottom: 10%;
+    width: 100%;
+    display: flex;
+    justify-content: space-around;
+    padding: 0 5%;
+}
+
+/* Lingkaran Opsi berdiameter 20% tinggi layar (20vh) */
+.option-circle {
+    width: 20vh;
+    height: 20vh;
+    border-radius: 50%;
+    background: #ffffff;
+    border: 3px solid #64748b;
+    display: flex;
+    align-items: center;
+    justify-content: center;
+    text-align: center;
+    padding: 12px;
+    font-weight: 600;
+    cursor: pointer;
+    box-shadow: 0 4px 12px rgba(0, 0, 0, 0.08);
+}
+
+#probe-modal {
+    display: none;
+    position: fixed;
+    top: 0;
+    left: 0;
+    width: 100%;
+    height: 100%;
+    background: rgba(15, 23, 42, 0.7);
+    justify-content: center;
+    align-items: center;
+    z-index: 999;
+}
+
+.probe-card {
+    background: white;
+    padding: 32px;
+    border-radius: 16px;
+    text-align: center;
+    max-width: 480px;
+}
+
+.btn {
+    margin: 10px;
+    padding: 12px 24px;
+    border: none;
+    border-radius: 8px;
+    font-size: 1rem;
+    cursor: pointer;
+}
+
+.btn-yes {
+    background: #ef4444;
+    color: white;
+}
+
+.btn-no {
+    background: #10b981;
+    color: white;
+}

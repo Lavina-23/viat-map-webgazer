@@ -1,0 +1,68 @@
+<!DOCTYPE html>
+<html lang="id">
+
+<head>
+    <meta charset="UTF-8">
+    <title>Eksperimen Mind Wandering Gaze</title>
+    <link rel="stylesheet" href="css/style.css">
+    <script src="js/webgazer.js"></script>
+    <script src="js/stories.js"></script>
+    <script src="js/app.js"></script>
+</head>
+
+<body>
+    <!-- Panduan & Panel Kalibrasi -->
+    <div id="calibration-guide" style="text-align: center; margin-top: 15vh; z-index: 10; position: relative;">
+        <h2 style="font-size: 2rem; color: #1e293b; margin-bottom: 8px;">Kalibrasi Eye Tracking (WebGazer)</h2>
+        <div id="camera-status" style="display: inline-block; padding: 6px 16px; border-radius: 20px; background: #fef3c7; color: #92400e; font-weight: 600; margin-bottom: 16px; font-size: 0.95rem;">
+            ⏳ Menginisialisasi WebGazer & meminta izin webcam...
+        </div>
+        <p id="calibration-instruction" style="color: #475569; max-width: 600px; margin: 0 auto 20px; font-size: 1.05rem; line-height: 1.6;">
+            Tatap wajah Anda ke kamera. Klik masing-masing dari <strong>9 titik merah</strong> di layar sebanyak <strong>5 kali</strong> sambil terus menatap titik tersebut agar algoritma mengenali arah pandangan Anda.
+        </p>
+        <div id="calibration-progress" style="font-weight: 600; color: #334155; margin-bottom: 20px;">
+            Kemajuan Kalibrasi: <span id="calibrated-count">0</span> / 9 titik
+        </div>
+        <button id="btn-start" class="btn btn-no" onclick="startExperiment()" disabled style="opacity: 0.5; cursor: not-allowed; font-weight: 600; padding: 12px 32px; font-size: 1.1rem;">
+            Mulai Eksperimen
+        </button>
+    </div>
+
+    <!-- 9 Titik Kalibrasi -->
+    <div id="calibration-points" class="calibration-points-container">
+        <div class="Calibration" id="Pt1" onclick="onCalPointClick('Pt1')">5</div>
+        <div class="Calibration" id="Pt2" onclick="onCalPointClick('Pt2')">5</div>
+        <div class="Calibration" id="Pt3" onclick="onCalPointClick('Pt3')">5</div>
+        <div class="Calibration" id="Pt4" onclick="onCalPointClick('Pt4')">5</div>
+        <div class="Calibration" id="Pt5" onclick="onCalPointClick('Pt5')">5</div>
+        <div class="Calibration" id="Pt6" onclick="onCalPointClick('Pt6')">5</div>
+        <div class="Calibration" id="Pt7" onclick="onCalPointClick('Pt7')">5</div>
+        <div class="Calibration" id="Pt8" onclick="onCalPointClick('Pt8')">5</div>
+        <div class="Calibration" id="Pt9" onclick="onCalPointClick('Pt9')">5</div>
+    </div>
+
+    <!-- UI Eksperimen Utama -->
+    <div id="experiment-ui" style="display: none;">
+        <div id="sentence-box">Teks narasi akan muncul di sini...</div>
+        <button class="btn btn-no" style="position: absolute; top: 55%; left: 50%; transform: translateX(-50%); font-weight: 600;"
+            onclick="nextStep()">Lanjut Kalimat ➜</button>
+
+        <div class="options-container">
+            <div id="opt1" class="option-circle" onclick="selectAnswer('opt1')">Opsi 1</div>
+            <div id="opt2" class="option-circle" onclick="selectAnswer('opt2')">Opsi 2</div>
+            <div id="opt3" class="option-circle" onclick="selectAnswer('opt3')">Opsi 3</div>
+        </div>
+    </div>
+
+    <!-- Modal Evaluasi Mind Wandering (TUT Probe) -->
+    <div id="probe-modal">
+        <div class="probe-card">
+            <h3 style="font-size: 1.4rem; color: #0f172a; margin-bottom: 12px;">Pertanyaan Evaluasi Fokus</h3>
+            <p style="color: #334155; line-height: 1.6; margin-bottom: 24px;">Apakah saat membaca barusan pikiran Anda teralihkan / melamun (Mind Wandering / Off-Task)?</p>
+            <button class="btn btn-yes" onclick="handleProbe(true)">Ya (Off-Task / Melamun)</button>
+            <button class="btn btn-no" onclick="handleProbe(false)">Tidak (On-Task / Fokus)</button>
+        </div>
+    </div>
+</body>
+
+</html>
